@@ -36,6 +36,7 @@ import { AdminOrdenesComponent } from './pages/admin-ordenes/admin-ordenes.compo
 import { AdminProductosComponent } from './pages/admin-productos/admin-productos.component';
 import { AdminClientelaComponent } from './pages/admin-clientela/admin-clientela.component';
 import { AdminGaleriaEditorComponent } from './components/admin-galeria-editor/admin-galeria-editor.component';
+import { AdminServiciosComponent } from './components/admin-servicios/admin-servicios.component';
 @NgModule({
   declarations: [
     CarouselComponent,
@@ -62,6 +63,7 @@ import { AdminGaleriaEditorComponent } from './components/admin-galeria-editor/a
     AdminProductosComponent,
     AdminClientelaComponent,
     AdminGaleriaEditorComponent,
+    AdminServiciosComponent,
 
   ],
   imports: [
