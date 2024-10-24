@@ -1,149 +1,100 @@
-/* General container styling */
+/* Estilo para el contenedor principal */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  /* Card styling */
-  .card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .card:hover {
-    transform: scale(1.02);
-  }
-  
-  .card-img-top {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  .card-body {
-    padding: 15px;
-  }
-  
-  .card-title {
-    font-size: 1.25rem;
-    font-weight: bold;
-  }
-  
-  .card-text {
-    color: #555;
-    font-size: 0.95rem;
-  }
-  
-  /* Button styling */
-  .btn-primary, .btn-success, .btn-warning, .btn-danger {
-    font-size: 0.9rem;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 5px;
-    margin-right: 10px;
-  }
-  
-  .btn-primary {
-    background-color: #6f42c1;
-    border: none;
-  }
-  
-  .btn-primary:hover {
-    background-color: #5a379e;
-  }
-  
-  .btn-success {
-    background-color: #28a745;
-    border: none;
-  }
-  
-  .btn-warning {
-    background-color: #ffc107;
-    border: none;
-  }
-  
-  .btn-danger {
-    background-color: #dc3545;
-    border: none;
-  }
-  
-  /* Styling for additional options list */
-  ul {
-    list-style-type: none;
-    padding-left: 0;
-  }
-  
-  li {
-    padding: 5px 0;
-    font-size: 0.9rem;
-  }
-  
-  label {
-    font-size: 0.9rem;
-    color: #555;
-  }
-  
-  /* Styling for admin buttons */
-  .admin-buttons {
-    display: flex;
-    justify-content: flex-start;
-  }
-  
-  .admin-buttons .btn {
-    margin-right: 10px;
-  }
-  
-  /* Button for adding new service */
-  .text-center .btn-primary {
-    background-color: #007bff;
-    margin-top: 20px;
-  }
-  
-  .text-center .btn-primary:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Media Queries for Responsive Design */
-  @media (max-width: 768px) {
-    .col-md-4 {
-      margin-bottom: 20px;
-    }
-  
-    .admin-buttons {
-      flex-direction: column;
-      justify-content: center;
-    }
-  
-    .admin-buttons .btn {
-      margin-bottom: 10px;
-      width: 100%;
-    }
-  
-    .text-center .btn {
-      width: 100%;
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .card-body {
-      padding: 10px;
-    }
-  
-    .card-title {
-      font-size: 1.1rem;
-    }
-  
-    .btn {
-      font-size: 0.8rem;
-      padding: 8px 15px;
-    }
-  
-    .admin-buttons .btn {
-      margin-bottom: 5px;
-    }
-  }
-  
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Barra de búsqueda */
+.input-group {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.input-group .form-control {
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+}
+
+.input-group .btn {
+  border-radius: 0 8px 8px 0;
+}
+
+/* Botones de categoría */
+.btn-group .btn {
+  margin-right: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-group .btn:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Estilo de las tarjetas de servicios */
+.card {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body h5 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+}
+
+.card-body ul {
+  padding-left: 20px;
+}
+
+.card-body ul li {
+  list-style-type: disc;
+}
+
+.card-body .btn-primary,
+.card-body .btn-success {
+  width: 100%;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Estilo para los botones de administrador (editar/eliminar) */
+.admin-buttons .btn-warning,
+.admin-buttons .btn-danger {
+  width: 48%;
+  font-size: 0.85rem;
+}
+
+.admin-buttons .btn-warning {
+  margin-right: 4%;
+}
+
+/* Botón para agregar nuevo servicio */
+.btn-primary {
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+.btn-primary i {
+  margin-right: 8px;
+}
+
+/* Alinear todo el contenido */
+.text-center {
+  text-align: center;
+}
