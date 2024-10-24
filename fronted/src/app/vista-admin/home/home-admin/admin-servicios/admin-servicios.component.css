@@ -1,0 +1,149 @@
+/* General container styling */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Card styling */
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: scale(1.02);
+  }
+  
+  .card-img-top {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-body {
+    padding: 15px;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    color: #555;
+    font-size: 0.95rem;
+  }
+  
+  /* Button styling */
+  .btn-primary, .btn-success, .btn-warning, .btn-danger {
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .btn-primary {
+    background-color: #6f42c1;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #5a379e;
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+    border: none;
+  }
+  
+  .btn-warning {
+    background-color: #ffc107;
+    border: none;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    border: none;
+  }
+  
+  /* Styling for additional options list */
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  li {
+    padding: 5px 0;
+    font-size: 0.9rem;
+  }
+  
+  label {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  /* Styling for admin buttons */
+  .admin-buttons {
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .admin-buttons .btn {
+    margin-right: 10px;
+  }
+  
+  /* Button for adding new service */
+  .text-center .btn-primary {
+    background-color: #007bff;
+    margin-top: 20px;
+  }
+  
+  .text-center .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Media Queries for Responsive Design */
+  @media (max-width: 768px) {
+    .col-md-4 {
+      margin-bottom: 20px;
+    }
+  
+    .admin-buttons {
+      flex-direction: column;
+      justify-content: center;
+    }
+  
+    .admin-buttons .btn {
+      margin-bottom: 10px;
+      width: 100%;
+    }
+  
+    .text-center .btn {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .card-body {
+      padding: 10px;
+    }
+  
+    .card-title {
+      font-size: 1.1rem;
+    }
+  
+    .btn {
+      font-size: 0.8rem;
+      padding: 8px 15px;
+    }
+  
+    .admin-buttons .btn {
+      margin-bottom: 5px;
+    }
+  }
+  

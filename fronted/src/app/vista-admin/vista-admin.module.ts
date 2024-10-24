@@ -7,6 +7,7 @@ import { CalendarioAdminComponent } from './home/home-admin/calendario-admin/cal
 import { PanelEdicionComponent } from './salpicadero/panel-edicion/panel-edicion.component';
 import { AdminServiciosComponent } from './home/home-admin/admin-servicios/admin-servicios.component';
 
+
 @NgModule({
   declarations: [
     AdminGaleriaEditorComponent,
