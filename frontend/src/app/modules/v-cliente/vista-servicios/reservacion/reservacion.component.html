@@ -1,6 +1,4 @@
-
-
-<div class="calendario-contenedor">
+<div class="calendario-contenedor" *ngIf="calendarioVisible">
     <div class="calendario text-center">
       <!-- Navegación del calendario -->
       <div class="cabecera">
@@ -36,8 +34,8 @@
       <div *ngIf="servicioSeleccionado" class="informacion-servicio">
         <h4>Resumen de Reserva: {{ servicioSeleccionado.titulo }}</h4>
         <h4>{{ servicioSeleccionado.descripcion }}</h4>
-        <ul>
-          <li *ngFor="let opcion of servicioSeleccionado.opciones">
+        <ul *ngIf="tieneOpcionSeleccionada()">
+          <li *ngFor="let opcion of servicioSeleccionado?.opciones">
             <span *ngIf="opcion.seleccionada">
               {{ opcion.nombre }}: {{ opcion.precio | currency }}
             </span>
@@ -49,7 +47,7 @@
   
     <!-- Formulario de contacto -->
    <!-- Formulario de contacto -->
-  <div class="formulario-contacto">
+  <div class="formulario-contacto" *ngIf="formularioAbierto">
     <h4>Información de Contacto</h4>
     <form #contactForm="ngForm" (ngSubmit)="enviarFormulario(contactForm)">
       
@@ -117,7 +115,7 @@
   
       <!--Dirección-->
       <div class="form-group">
-        <label for="direccion">Dirección:</label>
+        <label for="direccion">Dirección del evento:</label>
         <div class="underline">
           <input 
             type="text" 
@@ -179,6 +177,27 @@
         </span>
       </div>
   
+       <!-- Tematica o color-->
+       <div class="form-group">
+        <label for="local">Tematica o color a seguir:</label>
+        <div class="underline">
+          <input 
+            type="text" 
+            id="tematica" 
+            name="tematica" 
+            required 
+            minlength="3" 
+            maxlength="50" 
+            pattern="[a-zA-Z\s]+" 
+            ngModel 
+            #tematica="ngModel" 
+            aria-required="true">
+        </div>
+        <span class="text-danger" *ngIf="tematica.invalid && tematica.touched">
+          La tematica debe contener entre 3 y 50 caracteres y solo letras.
+        </span>
+      </div>
+
       <!-- Botón de Enviar -->
       <button 
         type="submit" 

@@ -2,8 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { IServicio } from 'src/models/iservicios.metadata';
 import { NgForm } from '@angular/forms';
 import { EventosService } from 'src/services/api/eventos/eventos.service'; 
+import { ModalService } from 'src/services/global/modal/modal.service'; 
 import { IEvento} from 'src/models/ievento.metadata';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reservacion',
@@ -19,14 +21,20 @@ export class ReservacionComponent implements OnInit {
   anio: number = new Date().getFullYear();
   fechaSeleccionada: Date | null = null;
   fechasNoSeleccionables: Date[] = []; 
-
   usuario: string = '';  
   idCliente: string = '';
   tiposDeEvento: string[] = ['Boda', 'XV Años', 'Baby Shower', 'Evento Corporativo', 'Fiesta Infantil'];
+  tematica: string = '';
+  formularioAbierto: boolean = true;
+  calendarioVisible: boolean = true;
+ 
 
+// Método para verificar si hay alguna opción seleccionada
+tieneOpcionSeleccionada(): boolean {
+  return this.servicioSeleccionado?.opciones.some(opcion => opcion.seleccionada) ?? false;
+}
 
-
-  constructor(private eventosService: EventosService) {}
+  constructor(private eventosService: EventosService, private router: Router, private modal: ModalService) {}
 
   ngOnInit() {
     // Cargar los datos de sessionStorage en lugar de los valores estáticos
@@ -39,6 +47,11 @@ export class ReservacionComponent implements OnInit {
 
     this.generarDias(); 
     this.obtenerFechasNoSeleccionables();
+  }
+
+  ocultarCalendarioYFormulario() {
+    this.formularioAbierto = false; // Ocultar formulario
+    this.calendarioVisible = false; // Ocultar calendario
   }
 
   obtenerFechasNoSeleccionables() {
@@ -125,6 +138,7 @@ export class ReservacionComponent implements OnInit {
         estado: 'pendiente' as 'pendiente', // Asegurando el tipo literal
         precio_final: this.calcularPrecioTotal(),
         adiciones: this.obtenerOpcionesSeleccionadas() 
+        
       };
   
       this.eventosService.create("eventos",evento).subscribe({
@@ -134,8 +148,10 @@ export class ReservacionComponent implements OnInit {
             title: '¡Reserva confirmada!',
             text: 'Tu evento ha sido agendado con éxito. Nos pondremos en contacto en breve.',
             confirmButtonText: 'Aceptar',
+          }).then(() => {
+         this.modal.closeModal();
           });
-          form.resetForm();
+        
         },
         error: () => {
           Swal.fire({
